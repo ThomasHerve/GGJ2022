@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764df11cc1116f040babcf4f0a7ff5ab, type: 3}
   m_Name: SCN_Core
   m_EditorClassIdentifier: 
-  scenes: []
+  scenes:
+  - Core
   description: 
-  sceneAssets: []
+  sceneAssets:
+  - {fileID: 102900000, guid: 3e55974930107904c91e8af80b6e7269, type: 3}
