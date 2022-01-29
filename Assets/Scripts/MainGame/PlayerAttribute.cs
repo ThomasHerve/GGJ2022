@@ -12,6 +12,7 @@ public static class PlayerAttribute
 
 
     #region Properties
+    /// <summary> Is the player on the opposite color state </summary>
     public static bool color {
         get => m_Color;
         set {
