@@ -6,12 +6,22 @@ using TMPro;
 public class HighScore : MonoBehaviour
 {
 
-    public TextMeshProUGUI ScorePositionPerso;
-    public TextMeshProUGUI ScoreValeurPerso;
+    public TextMeshProUGUI ScorePerso;
+    public TextMeshProUGUI GlobalHighScore;
 
-    public TextMeshProUGUI ScorePosition;
-    public TextMeshProUGUI ScoreValeur;
+    private void Start()
+    {
+        //ScorePerso.text = Score.GetPersonnalScore().ToString();
 
+        GlobalHighScore.text = "";
 
+        if (Score.HighScoreValues.Count != 0)
+        {
+            for (int i = (Score.HighScoreValues.Count - 1); i >= 0; i--)
+            {
+                GlobalHighScore.text += Score.GetHighScoreValue(i).ToString() + "\n";
+            }
+        }
+    }
 
 }
