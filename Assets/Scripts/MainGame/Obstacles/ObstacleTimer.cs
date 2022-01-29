@@ -67,7 +67,10 @@ public class ObstacleTimer : MonoBehaviour
 
     public void Launch()
     {
-        zsize = gameObject.GetComponent<Renderer>().bounds.size.z;
+        zsize = gameObject.GetComponent<ObstacleAttribute>().zsize;
+        if (gameObject.GetComponent<Renderer>() != null) {
+            zsize = gameObject.GetComponent<Renderer>().bounds.size.z;
+        }
         delay = PlayerAttribute.distance;
 
         alive = true;

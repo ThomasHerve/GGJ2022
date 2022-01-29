@@ -15,7 +15,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            PlayerAttribute.color = !PlayerAttribute.color;
+            if (PlayerAttribute.color == Phase.BLUE) PlayerAttribute.color = Phase.ORANGE;
+            else PlayerAttribute.color = Phase.BLUE;
         }
     }
 }
