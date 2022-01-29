@@ -44,10 +44,11 @@ public class GameLooper : MonoBehaviour
             timer = UnityEngine.Random.Range(no_obstacle_time_min, no_obstacle_time_max);
         }
 
-        if(obstacle != null)
+        if(obstacle != null && !PlayerAttribute.invincible)
         {
             if(obstacle.GetComponent<ObstacleAttribute>().color != PlayerAttribute.color)
             {
+                obstacle.GetComponent<Renderer>().material.color = Color.red;
                 PlayerAttribute.loseLife();
             }
         }
@@ -62,14 +63,12 @@ public class GameLooper : MonoBehaviour
     {
         Debug.Log("In Obstacle");
         obstacle = e.obstacleGameObject;
-        e.obstacleGameObject.GetComponent<Renderer>().material.color = Color.red;
 
     }
 
     void OutObstacleHandler(object sender, ObstacleEventArg e)
     {
         Debug.Log("Out of Obstacle");
-        e.obstacleGameObject.GetComponent<Renderer>().material.color = Color.green;
         obstacle = null;
 
     }
