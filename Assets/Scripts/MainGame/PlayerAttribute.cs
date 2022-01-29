@@ -1,12 +1,22 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public static class PlayerAttribute
 {
+    #region Constante
+    public static Color color0 = Color.cyan;
+    public static Color color1 = Color.yellow;
+
+    #endregion
+
+
     #region Current State
+    public static Player player;
     public static int life = 3;
     public static float speed = 1;
     public static float distance = 10;
+    public static bool invincible = false;
     private static bool m_Color = false;
     #endregion
 
@@ -20,7 +30,10 @@ public static class PlayerAttribute
             onColorSwitch?.Invoke();
         }
     }
-    
+    public static Color currentColor
+    {
+        get => m_Color ? color0 : color1;
+    }
     #endregion
 
 
@@ -34,6 +47,16 @@ public static class PlayerAttribute
     {
         life--;
         Debug.Log("Hit taken");
+        player.StartCoroutine( Invincibility());
+    }
+    static IEnumerator Invincibility()
+    {
+        invincible = true;
+
+        yield return new WaitForSeconds(3f);
+
+        invincible = false;
+
     }
     #endregion
 }
