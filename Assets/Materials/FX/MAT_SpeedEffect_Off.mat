@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Pattern:
+        m_Texture: {fileID: 2800000, guid: eb9ceb9906b89e345950c3a3b7c50dd2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_463c9c132f0b4c69aa634af7e11bdf8b_Out_0:
         m_Texture: {fileID: 2800000, guid: eb9ceb9906b89e345950c3a3b7c50dd2, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -37,8 +41,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - _BrightColor: {r: 1.5157166, g: 1.2141604, b: 1.2225053, a: 1}
-    - _DarkColor: {r: 0.06666667, g: 0.038800005, b: 0.05074287, a: 0}
+    - _BrightColor: {r: 1.2220961, g: 1.3930229, b: 1.5157166, a: 1}
+    - _DarkColor: {r: 0.039215688, g: 0.046178862, b: 0.06666667, a: 0}
     - _Scroll: {r: 2.2, g: 0, b: 0, a: 0}
     - _Tiling: {r: 0.6, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
