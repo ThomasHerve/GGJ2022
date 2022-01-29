@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObstacleAttribute : MonoBehaviour
 {
     public bool color;
+    public float zsize;
 
 
     // Start is called before the first frame update

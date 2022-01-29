@@ -38,15 +38,18 @@ public static class PlayerAttribute
 
 
     #region Events
-    public static event Action onColorSwitch; 
+    public static event Action onColorSwitch;
+    public static event Action onHitTaken;
+
     #endregion
-    
-    
+
+
     #region Behaviour
     public static void loseLife()
     {
         life--;
         Debug.Log("Hit taken");
+        onHitTaken?.Invoke();
         player.StartCoroutine( Invincibility());
     }
     static IEnumerator Invincibility()
