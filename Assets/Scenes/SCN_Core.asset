@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7336c654f69212946abe18e3975a093f, type: 3}
-  m_Name: SCNLST_Game
+  m_Script: {fileID: 11500000, guid: 764df11cc1116f040babcf4f0a7ff5ab, type: 3}
+  m_Name: SCN_Core
   m_EditorClassIdentifier: 
-  persistantScenesBundle: {fileID: 11400000, guid: 8a7248ec9a463f74581021c494e0ee5b, type: 2}
-  scenesBundles:
-  - {fileID: 11400000, guid: f4f9618625540c44db545a9b5304c086, type: 2}
+  scenes:
+  - Core
+  description: 
+  sceneAssets:
+  - {fileID: 102900000, guid: 3e55974930107904c91e8af80b6e7269, type: 3}
