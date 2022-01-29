@@ -6,19 +6,24 @@ using UnityEngine;
 public class ObstacleTimer : MonoBehaviour
 {
     private float delay;
-    private float duration;
+    private float zsize;
 
-    private bool alive;
-    private bool trigger;
+    private bool alive = false;
+    private bool incoming = false;
+    private bool trigger = false;
 
     public static event EventHandler<ObstacleEventArg> InObstacle;
     public static event EventHandler<ObstacleEventArg> OutObstacle;
+    public static event EventHandler<ObstacleEventArg> EndObstacle;
 
+    Vector3 direction;
+    float totalDistance;
+    float playerPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        Stop();
+        playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position.z;
     }
 
     // Update is called once per frame
@@ -26,59 +31,75 @@ public class ObstacleTimer : MonoBehaviour
     {
         if (alive)
         {
-            if(delay > 0)
-                delay -= Time.deltaTime * PlayerAttribute.speed;
-            else
+            float speed = (totalDistance / PlayerAttribute.distance * PlayerAttribute.speed) * Time.deltaTime;
+            transform.position += direction * speed;
+
+            if (incoming)
             {
-                if (trigger)
-                {
-                    Debug.Log("Delay ended");
-                    InObstacle.Invoke(this, new ObstacleEventArg(gameObject));
-                    trigger = false;
-                }
+                if (transform.position.z - zsize/2 >= playerPosition)
+                    delay -= Time.deltaTime * PlayerAttribute.speed;
                 else
                 {
-                    if (duration > 0)
-                        duration -= Time.deltaTime;
+                    if (trigger)
+                    {
+                        Debug.Log("Delay ended");
+                        InObstacle.Invoke(this, new ObstacleEventArg(gameObject));
+                        trigger = false;
+                    }
                     else
                     {
-                        Debug.Log("Duration ended");
-                        OutObstacle.Invoke(this, new ObstacleEventArg(gameObject));
-                        Stop();
-                    }
+                        if (zsize > 0)
+                            zsize -= speed;
+                        else
+                        {
+                            Debug.Log("Duration ended");
+                            OutObstacle.Invoke(this, new ObstacleEventArg(gameObject));
+                            StartCoroutine( StopAfterDelay());
+                        }
 
+                    }
                 }
             }
         }
+
     }
 
 
-    public void Launch(float duration)
+    public void Launch()
     {
-        this.duration = duration;
+        zsize = gameObject.GetComponent<Renderer>().bounds.size.z;
         delay = PlayerAttribute.distance;
 
         alive = true;
         trigger = true;
+        incoming = true;
+
+        InitPosition();
 
         Debug.Log("Obstacle Launched");
     }
 
-    public void Stop()
+    public void InitPosition()
     {
+        transform.position = GameObject.FindGameObjectWithTag("Spawn").transform.position;
+        totalDistance = Mathf.Abs((GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).z);
+        direction = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized;
+    }
+
+    IEnumerator StopAfterDelay()
+    {
+        incoming = false;
+
+        yield return new WaitForSeconds(1f);
+
         alive = false;
         trigger = false;
 
-        Debug.Log("Obstacle Stopped");
+
+        transform.position = GameObject.FindGameObjectWithTag("Dylan").transform.position;
+
+        EndObstacle.Invoke(this, new ObstacleEventArg(gameObject));
+
     }
 
-    public float getDelay()
-    {
-        return delay;
-    }
-
-    public float getDuration() 
-    {
-        return duration;
-    }
 }

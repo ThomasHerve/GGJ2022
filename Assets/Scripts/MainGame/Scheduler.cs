@@ -10,65 +10,54 @@ public class Scheduler : MonoBehaviour
     private List<Obstacle> obstacles = new List<Obstacle>();
 
 
-    private List<Obstacle> free_obstacles = new List<Obstacle>();
-    private List<Obstacle> used_obstacles = new List<Obstacle>();
+    private List<GameObject> free_obstacles = new List<GameObject>();
+    private List<GameObject> used_obstacles = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
         foreach (Obstacle obstacle in obstacles)
-           for (int i = 0; i < obstacle.frequency; i++)
-               free_obstacles.Add(new Obstacle(Instantiate(obstacle.gameObject), obstacle.length));
+            for (int i = 0; i < obstacle.frequency; i++)
+            {
+                GameObject o = Instantiate(obstacle.gameObject);
+                free_obstacles.Add(o);
+                o.transform.position = GameObject.FindGameObjectWithTag("Dylan").transform.position;
 
-        ObstacleTimer.OutObstacle += OutObstacleHandler;
+            }
+
+        ObstacleTimer.EndObstacle += EndObstacleHandler;
 
     }
 
-    public float Next()
+    public void Next()
     {
-        Debug.Log("Scheduler next");
+        Debug.Log("Scheduler next : " + free_obstacles.Count);
 
         int ind = UnityEngine.Random.Range(0, free_obstacles.Count - 1);
-        Obstacle obstacle = free_obstacles[ind];
+        GameObject obstacle = free_obstacles[ind];
 
         free_obstacles.Remove(obstacle);
         used_obstacles.Add(obstacle);
 
         InstantiateObstacle(obstacle);
-
-        Debug.Log(obstacle);
-
-
-        return obstacle.length;
     }
 
 
-    public void InstantiateObstacle(Obstacle obstacle)
+    public void InstantiateObstacle(GameObject obstacle)
     {
-        obstacle.gameObject.GetComponent<ObstacleTimer>().Launch(obstacle.length);
-        obstacle.gameObject.AddComponent<ObstacleMover>();
+        obstacle.GetComponent<ObstacleTimer>().Launch();
     }
 
 
 
-    void OutObstacleHandler(object sender, ObstacleEventArg e)
+    void EndObstacleHandler(object sender, ObstacleEventArg e)
     {
-        Obstacle obstacle = used_obstacles.Find(o => o.gameObject == e.obstacleGameObject);
+        Debug.Log("End of Obstacle");
 
-        StartCoroutine(WaitAndDestroyObstacle(obstacle));
-    }
-
-    IEnumerator WaitAndDestroyObstacle(Obstacle obstacle)
-    {
-        yield return new WaitForSeconds(2f);
-
-
-        obstacle.gameObject.transform.position = GameObject.FindGameObjectWithTag("Dylan").transform.position;
-
-        Component.Destroy(obstacle.gameObject.GetComponent<ObstacleMover>());
-
+        GameObject obstacle = used_obstacles.Find(o => o.gameObject == e.obstacleGameObject);
+        obstacle.GetComponent<ObstacleAttribute>().ResetColor();
         used_obstacles.Remove(obstacle);
         free_obstacles.Add(obstacle);
-
     }
+
 }
