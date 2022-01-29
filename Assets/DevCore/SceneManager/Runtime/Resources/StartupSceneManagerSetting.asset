@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6454e7c64d8c0aa46ab1e474f2f7f684, type: 3}
   m_Name: StartupSceneManagerSetting
   m_EditorClassIdentifier: 
-  _sceneList: {fileID: 11400000, guid: 8a5f7c69c4e586947aab371265b9c3ce, type: 2}
+  _sceneList: {fileID: 11400000, guid: 0bc4286eff9b50544b777d915f59dba4, type: 2}

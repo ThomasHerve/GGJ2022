@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764df11cc1116f040babcf4f0a7ff5ab, type: 3}
   m_Name: SCN_Game
   m_EditorClassIdentifier: 
-  scenes: []
+  scenes:
+  - Mockup
+  - GameScene
   description: 
-  sceneAssets: []
+  sceneAssets:
+  - {fileID: 102900000, guid: 4aaa284c2414b6741a8b63066a30bd35, type: 3}
+  - {fileID: 102900000, guid: 374c4ed4793f5eb4f99f0d5c5fa57a0c, type: 3}
