@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
 
     private float timer = 2f;
 
+    private bool ending = false;
+    private float endspeed;
+    private float enddistance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,9 +38,14 @@ public class GameManager : MonoBehaviour
                 timer = 2;
             }
 
-            PlayerAttribute.speed += 0.1f * Time.deltaTime;
+            PlayerAttribute.speed += (0.1f * Time.deltaTime) / PlayerAttribute.speed;
             looper.AugmentSpawn(0.1f * Time.deltaTime);
             timer -= Time.deltaTime;
+        }
+
+        if (ending)
+        {
+            GameObject.FindGameObjectWithTag("PlayerPrefab").transform.position += new Vector3 (0,0, enddistance / PlayerAttribute.distance * endspeed * Time.deltaTime);
         }
     }
 
@@ -44,6 +53,17 @@ public class GameManager : MonoBehaviour
     {
         PlayerAttribute.speed = 1;
         looper.ResetSpawn();
+        if (PlayerAttribute.life == 0)
+            EndGame();
+    }
+
+    void EndGame()
+    {
+        looper.started = false;
+        enddistance = Mathf.Abs((GameObject.FindGameObjectWithTag("Spawn").transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).z);
+        endspeed = PlayerAttribute.speed;
+        PlayerAttribute.speed = 0;
+        ending = true;
     }
 
 }

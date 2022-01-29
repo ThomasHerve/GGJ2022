@@ -13,7 +13,7 @@ public static class PlayerAttribute
 
     #region Current State
     public static Player player;
-    public static int life = 3;
+    public static int life = 1;
     public static float speed = 1;
     public static float distance = 10;
     public static bool invincible = false;
