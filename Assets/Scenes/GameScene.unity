@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.068122536, g: 0.05956413, b: 0.067305475, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: 9c0c405235d4a194188be6a2684bc7b6, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 1991045124}
   - component: {fileID: 1991045123}
   - component: {fileID: 1991045125}
+  - component: {fileID: 1991045126}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -318,7 +319,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
-  - gameObject: {fileID: 4945150672424626883, guid: 9182705990537cd438623934fcae3d28, type: 3}
+  - gameObject: {fileID: 9190041690270217668, guid: 80d9ec062c3e485478e49e0362aff5be, type: 3}
+    frequency: 20
+  - gameObject: {fileID: 1784155927598863076, guid: 5cdff35cc224a004bb5ad9d1b31b8c3c, type: 3}
     frequency: 20
 --- !u!114 &1991045125
 MonoBehaviour:
@@ -353,6 +356,18 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &1991045126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991045119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d70368ffe54d15e479abdbff64ec36fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2061545203
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +392,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061545203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 96.65}
+  m_LocalPosition: {x: 0, y: 0, z: 200}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -394,9 +409,37 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4940085943862713573, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940085943862713573, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940085943862713573, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5093218468622674488, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482926778826876698, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482926778826876698, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482926778826876698, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482926778826876698, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
+      propertyPath: m_IntensityMultiplier
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6003052423641516962, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
       propertyPath: m_Name
@@ -448,6 +491,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6003052423641516967, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6885521755427437872, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
