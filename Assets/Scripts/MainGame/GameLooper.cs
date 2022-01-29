@@ -62,11 +62,15 @@ public class GameLooper : MonoBehaviour
     {
         Debug.Log("In Obstacle");
         obstacle = e.obstacleGameObject;
+        e.obstacleGameObject.GetComponent<Renderer>().material.color = Color.red;
+
     }
 
     void OutObstacleHandler(object sender, ObstacleEventArg e)
     {
         Debug.Log("Out of Obstacle");
+        e.obstacleGameObject.GetComponent<Renderer>().material.color = Color.green;
         obstacle = null;
+
     }
 }
