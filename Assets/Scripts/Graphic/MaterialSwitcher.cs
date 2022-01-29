@@ -30,8 +30,8 @@ public class MaterialSwitcher : ColorSwitchListener {
 	
 	#region Callbacks
 	protected override void OnEnable() {
-		base.OnEnable();
 		_currentMaterials = _targetRenderer.sharedMaterials;
+		base.OnEnable();
 	}
 
 	public override void OnColorSwitch() {
