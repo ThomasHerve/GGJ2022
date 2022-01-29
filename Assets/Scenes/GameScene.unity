@@ -303,8 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a62f877dd8ee14c81b352f0cf8e300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  no_obstacle_time_min: 1
-  no_obstacle_time_max: 2
+  no_obstacle_time_min: 5
+  no_obstacle_time_max: 6
 --- !u!114 &1991045124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,18 +318,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
-  - gameObject: {fileID: 798357346244436329, guid: 446cfeef1697be14ebc28cfe904d0e5a, type: 3}
-    length: 1
-    frequency: 4
-  - gameObject: {fileID: 1812796841201437788, guid: 21e85b3b25c3d2746b319dbefd8b9bc6, type: 3}
-    length: 2
-    frequency: 1
-  - gameObject: {fileID: 3001505198468276203, guid: 3d8282eb3fae8264e9574f81c808b900, type: 3}
-    length: 0.2
-    frequency: 8
-  - gameObject: {fileID: 4480605698336927234, guid: 2589edf3fccbf194a8e7e62461b35eeb, type: 3}
-    length: 1
-    frequency: 3
+  - gameObject: {fileID: 4945150672424626883, guid: 9182705990537cd438623934fcae3d28, type: 3}
+    frequency: 20
 --- !u!114 &1991045125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,9 +390,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2801523054900661332, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093218468622674488, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.37
+      objectReference: {fileID: 0}
     - target: {fileID: 6003052423641516962, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
       propertyPath: m_Name
       value: PF_Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6003052423641516962, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6003052423641516967, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
       propertyPath: m_RootOrder
