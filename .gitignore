@@ -90,6 +90,7 @@ InitTestScene*.unity
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.vsconfig
 *.code-workspace
 
 ### VisualStudioCode Patch ###
