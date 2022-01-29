@@ -17,13 +17,13 @@ public static class PlayerAttribute
     public static float speed = 1;
     public static float distance = 10;
     public static bool invincible = false;
-    private static bool m_Color = false;
+    private static Phase m_Color = Phase.BLUE;
     #endregion
 
 
     #region Properties
     /// <summary> Is the player on the opposite color state </summary>
-    public static bool color {
+    public static Phase color {
         get => m_Color;
         set {
             m_Color = value;
@@ -32,7 +32,7 @@ public static class PlayerAttribute
     }
     public static Color currentColor
     {
-        get => m_Color ? color0 : color1;
+        get => m_Color == Phase.BLUE ? color0 : color1;
     }
     #endregion
 

@@ -56,7 +56,6 @@ public class Scheduler : MonoBehaviour
         Debug.Log("End of Obstacle");
 
         GameObject obstacle = used_obstacles.Find(o => o.gameObject == e.obstacleGameObject);
-        obstacle.GetComponent<ObstacleAttribute>().ResetColor();
         used_obstacles.Remove(obstacle);
         free_obstacles.Add(obstacle);
     }
