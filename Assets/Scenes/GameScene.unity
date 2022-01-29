@@ -171,8 +171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 20a705aea2d80e0478fb89b6f43d8530, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.1
-  m_FrequencyGain: 6
+  m_AmplitudeGain: 0.05
+  m_FrequencyGain: 20
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &1001987509
 MonoBehaviour:
@@ -260,7 +260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332048493}
   m_LocalRotation: {x: -0.0437942, y: -0.0039001722, z: 0.00016675548, w: -0.9990329}
-  m_LocalPosition: {x: -0.046929322, y: 1.2573934, z: -3.0108912}
+  m_LocalPosition: {x: -0.046929322, y: 1.2573934, z: -2.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1001987507}
@@ -461,7 +461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Axes: {x: 1, y: 0, z: 0}
-  m_Amplitude: 0.5
+  m_Amplitude: 1
   m_Frequency: 0.2
 --- !u!1 &1991045119
 GameObject:
@@ -546,7 +546,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991045119}
   m_LocalRotation: {x: -0.043794204, y: -0.0039001722, z: 0.00016675549, w: -0.9990329}
-  m_LocalPosition: {x: -0.046929322, y: 1.2573934, z: -3.0108912}
+  m_LocalPosition: {x: -0.046929322, y: 1.2573934, z: -2.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1726556845}
@@ -718,25 +718,29 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4940085943862713573, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bad97adf423dbc143b73ced40390fef3, type: 2}
     - target: {fileID: 5093218468622674488, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.37
       objectReference: {fileID: 0}
     - target: {fileID: 5482926778826876698, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 1
+      value: 0.41099998
       objectReference: {fileID: 0}
     - target: {fileID: 5482926778826876698, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 1
+      value: 0.40455294
       objectReference: {fileID: 0}
     - target: {fileID: 5482926778826876698, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 1
+      value: 0.33202353
       objectReference: {fileID: 0}
     - target: {fileID: 5482926778826876698, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
       propertyPath: m_IntensityMultiplier
-      value: 0.4
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 6003052423641516962, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
       propertyPath: m_Name

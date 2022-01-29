@@ -42,7 +42,7 @@ Material:
     m_Floats:
     - _GlobalSpeedFactor: 0
     m_Colors:
-    - _BrightColor: {r: 1.5157166, g: 1.2141604, b: 1.2225053, a: 1}
+    - _BrightColor: {r: 2.6082377, g: 2.241389, b: 1.8492405, a: 1}
     - _DarkColor: {r: 0.06666667, g: 0.038800005, b: 0.05074287, a: 0}
     - _Scroll: {r: 2.2, g: 0, b: 0, a: 0}
     - _Tiling: {r: 0.6, g: 1, b: 0, a: 0}
