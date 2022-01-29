@@ -8,7 +8,8 @@ public class ColorSwitchListenerInspector : Editor {
 		EditorGUILayout.Space();
 
 		if (GUILayout.Button("Toggle State")) {
-			PlayerAttribute.color = !PlayerAttribute.color;
+			if (PlayerAttribute.color == Phase.BLUE) PlayerAttribute.color = Phase.ORANGE;
+			else PlayerAttribute.color = Phase.BLUE;
 			if (!Application.isPlaying) {
 				foreach (var listener in FindObjectsOfType<ColorSwitchListener>(true)) {
 					listener.OnColorSwitch();

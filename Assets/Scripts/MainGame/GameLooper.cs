@@ -58,8 +58,7 @@ public class GameLooper : MonoBehaviour
         {
             if(obstacle.GetComponent<ObstacleAttribute>().color != PlayerAttribute.color)
             {
-                obstacle.GetComponent<Renderer>().material.color = Color.red;
-                PlayerAttribute.loseLife();
+                PlayerAttribute.LoseLife();
             }
         }
     }

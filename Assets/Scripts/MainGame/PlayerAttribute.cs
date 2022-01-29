@@ -45,7 +45,7 @@ public static class PlayerAttribute
 
 
     #region Behaviour
-    public static void loseLife()
+    public static void LoseLife()
     {
         life--;
         Debug.Log("Hit taken");

@@ -26,16 +26,18 @@ public class GameManager : MonoBehaviour
             OnHitTakenHandler();
         }
 
-        if(timer <= 0)
+        if (looper.started)
         {
-            Debug.Log("Speed : " + PlayerAttribute.speed);
-            timer = 2;
+            if (timer <= 0)
+            {
+                Debug.Log("Speed : " + PlayerAttribute.speed);
+                timer = 2;
+            }
+
+            PlayerAttribute.speed += 0.1f * Time.deltaTime;
+            looper.AugmentSpawn(0.1f * Time.deltaTime);
+            timer -= Time.deltaTime;
         }
-
-        PlayerAttribute.speed += 0.1f * Time.deltaTime;
-        looper.AugmentSpawn(0.1f * Time.deltaTime);
-        timer -= Time.deltaTime;
-
     }
 
     void OnHitTakenHandler()

@@ -42,7 +42,7 @@ public class MaterialSwitcher : ColorSwitchListener {
 #endif
 		
 		for (int i = 0; i < _switchers.Length; i++) {
-			_switchers[i].ApplyMaterial(PlayerAttribute.color, _currentMaterials);
+			_switchers[i].ApplyMaterial(PlayerAttribute.color == Phase.BLUE, _currentMaterials);
 		}
 
 		_targetRenderer.sharedMaterials = _currentMaterials;
