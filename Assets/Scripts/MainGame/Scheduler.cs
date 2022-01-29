@@ -21,6 +21,7 @@ public class Scheduler : MonoBehaviour
             {
                 GameObject o = Instantiate(obstacle.gameObject);
                 free_obstacles.Add(o);
+                o.GetComponent<ObstacleAttribute>().zsize = obstacle.length;
                 o.transform.position = GameObject.FindGameObjectWithTag("Dylan").transform.position;
 
             }

@@ -19,13 +19,11 @@ public class ObstacleTimer : MonoBehaviour
     Vector3 direction;
     float totalDistance;
     float playerPosition;
-    float playersize;
 
     // Start is called before the first frame update
     void Start()
     {
         playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position.z;
-        playersize = GameObject.FindGameObjectWithTag("Player").GetComponent<Renderer>().bounds.size.z;
     }
 
     // Update is called once per frame
@@ -69,7 +67,10 @@ public class ObstacleTimer : MonoBehaviour
 
     public void Launch()
     {
-        zsize = gameObject.GetComponent<Renderer>().bounds.size.z;
+        zsize = gameObject.GetComponent<ObstacleAttribute>().zsize;
+        if (gameObject.GetComponent<Renderer>() != null) {
+            zsize = gameObject.GetComponent<Renderer>().bounds.size.z;
+        }
         delay = PlayerAttribute.distance;
 
         alive = true;

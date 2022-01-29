@@ -1,3 +1,4 @@
+using DevCore.Core;
 using UnityEngine;
 
 public class GlobalShaderScrollSpeed : MonoBehaviour {

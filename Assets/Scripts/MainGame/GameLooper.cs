@@ -17,13 +17,20 @@ public class GameLooper : MonoBehaviour
 
     [SerializeField]
     private float no_obstacle_time_min;
+    private float no_obstacle_time_min_real;
+
     [SerializeField]
     private float no_obstacle_time_max;
+    private float no_obstacle_time_max_real;
+
+
 
     private Scheduler scheduler;
-    private float timer = 4.0f;
+    private float timer = 2.0f;
 
     private GameObject obstacle;
+
+    public bool started = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +44,9 @@ public class GameLooper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!started)
+            return;
+
         timer -= Time.deltaTime * PlayerAttribute.speed;
         if (timer <= 0)
         {
@@ -44,11 +54,11 @@ public class GameLooper : MonoBehaviour
             timer = UnityEngine.Random.Range(no_obstacle_time_min, no_obstacle_time_max);
         }
 
-        if(obstacle != null)
+        if(obstacle != null && !PlayerAttribute.invincible)
         {
             if(obstacle.GetComponent<ObstacleAttribute>().color != PlayerAttribute.color)
             {
-                PlayerAttribute.loseLife();
+                PlayerAttribute.LoseLife();
             }
         }
     }
@@ -62,15 +72,25 @@ public class GameLooper : MonoBehaviour
     {
         Debug.Log("In Obstacle");
         obstacle = e.obstacleGameObject;
-        e.obstacleGameObject.GetComponent<Renderer>().material.color = Color.red;
 
     }
 
     void OutObstacleHandler(object sender, ObstacleEventArg e)
     {
         Debug.Log("Out of Obstacle");
-        e.obstacleGameObject.GetComponent<Renderer>().material.color = Color.green;
         obstacle = null;
+
+    }
+
+    public void AugmentSpawn(float augment)
+    {
+        no_obstacle_time_min_real /= augment;
+        no_obstacle_time_max_real /= augment;
+    }
+    public void ResetSpawn()
+    {
+        no_obstacle_time_min_real = no_obstacle_time_min;
+        no_obstacle_time_max_real = no_obstacle_time_max;
 
     }
 }
