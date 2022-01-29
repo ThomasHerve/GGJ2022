@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mat_spaceship_emissive_on
-  m_Shader: {fileID: -6465566751694194690, guid: 51d2155595620db499db891df5955d51, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 094fb037572e1d149bc3438716e9560a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -44,6 +44,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -87,13 +91,17 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FadeDistance: 5
-    - _FadeOffset: 0
+    - _FadeDistance: 1
+    - _FadeOffset: 0.3
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
     - _Intensity: 2.42
     - _Iridescence: 0
+    - _MaskDistanceFade: 5
+    - _MaskInluence: 0.5
+    - _MaskScroll: 0
+    - _MaskTiling: 4
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -109,11 +117,12 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.17818247, b: 0.07058823, a: 1}
+    - _BaseColor: {r: 1, g: 0.33270872, b: 0.1462264, a: 1}
     - _Color: {r: 0.9063317, g: 0.9063317, b: 0.9063317, a: 1}
+    - _Emission: {r: 1.9766746, g: 0.9444938, b: 0.49021536, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _ToColor: {r: 1, g: 0.88377166, b: 0.7137255, a: 1}
+    - _ToColor: {r: 1, g: 0.05699998, b: 0.05699998, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6549871409490890965
 MonoBehaviour:

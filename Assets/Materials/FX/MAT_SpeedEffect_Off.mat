@@ -41,8 +41,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - _BrightColor: {r: 1.2220961, g: 1.3930229, b: 1.5157166, a: 1}
-    - _DarkColor: {r: 0.039215688, g: 0.046178862, b: 0.06666667, a: 0}
+    - _BrightColor: {r: 0.76392114, g: 1.2109345, b: 1.5157166, a: 1}
+    - _DarkColor: {r: 0.0117999995, g: 0.027476184, b: 0.06666667, a: 0}
     - _Scroll: {r: 2.2, g: 0, b: 0, a: 0}
     - _Tiling: {r: 0.6, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
