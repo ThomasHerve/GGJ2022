@@ -32,6 +32,7 @@ public class GameLooper : MonoBehaviour
     private float timer = 2.0f;
 
     private GameObject obstacle;
+    private Volume speedVolume;
 
     public bool started = false;
 
@@ -42,8 +43,9 @@ public class GameLooper : MonoBehaviour
         ObstacleTimer.InObstacle += InObstacleHandler;
         ObstacleTimer.OutObstacle += OutObstacleHandler;
         PlayerAttribute.onHitTaken += HitTakenHandler;
-
+        PlayerAttribute.onSpeedChange += SpeedChangeHandler;
         damagesVolume = GameObject.FindGameObjectWithTag("damageVolume").GetComponent<Volume>();
+        speedVolume = GameObject.FindGameObjectWithTag("speedVolume").GetComponent<Volume>();
     }
 
     // Update is called once per frame
@@ -114,6 +116,10 @@ public class GameLooper : MonoBehaviour
             damagesVolume.weight = damageCurve.Evaluate(timer);
             yield return null;
         }
+    }
+
+    private void SpeedChangeHandler() {
+        speedVolume.weight = PlayerAttribute.speed / PlayerAttribute.maxSpeed;
     }
 
     public void MaxSpawn()

@@ -10,6 +10,7 @@ TagManager:
   - damageVolume
   - PlayerPrefab
   - PlayerRenderer
+  - speedVolume
   layers:
   - Default
   - TransparentFX
