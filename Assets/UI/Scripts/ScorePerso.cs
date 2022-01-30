@@ -11,6 +11,16 @@ public class ScorePerso : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        UpdateScore();
+    }
+
+    private void Update()
+    {
+        UpdateScore();
+    }
+
+    public void UpdateScore()
+    {
         myScore.text = Score.GetPersonnalScore().ToString();
     }
 
