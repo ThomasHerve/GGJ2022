@@ -10,7 +10,8 @@ public class AudioManager : MonoBehaviour {
 
 
 	#region Currents
-	private float m_CurrentLowPassFilterRatio = 1f;  
+	private float m_CurrentLowPassFilterRatio = 1f;
+	private Tween m_CurrentLowPassTween = null;
 	#endregion
 
 	#region Callbacks
@@ -42,7 +43,10 @@ public class AudioManager : MonoBehaviour {
 
 	#region Music
 	private void DoLowPassFilterFade(float targetVal, float duration) {
-		DOTween.To(GetLowPassFilterAmount, SetLowPassFilterAmount, targetVal, duration);
+		if (m_CurrentLowPassTween != null && m_CurrentLowPassTween.IsPlaying()) {
+			m_CurrentLowPassTween.Kill(true);
+		}
+		m_CurrentLowPassTween = DOTween.To(GetLowPassFilterAmount, SetLowPassFilterAmount, targetVal, duration);
 	}
 	
 	private void SetLowPassFilterAmount(float ratio) {

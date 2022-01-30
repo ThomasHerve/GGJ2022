@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour {
         
         looper.started = true;
         PlayerAttribute.speed = 1;
+        Cursor.visible = false;
         onGameStart?.Invoke();
     }
     
@@ -92,6 +93,8 @@ public class GameManager : MonoBehaviour {
         Debug.Log("Score: " + PlayerAttribute.score);
         Score.PersonnalScore = PlayerAttribute.score;
         deathUI.Execute();
+
+        Cursor.visible = true;
         onGameEnd?.Invoke();
     }
 
