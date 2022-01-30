@@ -12,6 +12,7 @@ TagManager:
   - PlayerRenderer
   - speedVolume
   - death
+  - SpawnEnv
   layers:
   - Default
   - TransparentFX

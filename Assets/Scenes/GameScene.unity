@@ -329,7 +329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453541965}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: -10, z: -28.34}
+  m_LocalPosition: {x: -10000, y: -10000, z: -28.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -405,6 +405,13 @@ MonoBehaviour:
   - gameObject: {fileID: 9190041690270217668, guid: 80d9ec062c3e485478e49e0362aff5be, type: 3}
     frequency: 30
     length: 0.1
+  environments:
+  - gameObject: {fileID: 6077321646900701718, guid: b938b615b4492ef4281e1129acdf6694, type: 3}
+    frequency: 10
+    length: 20
+  - gameObject: {fileID: 871360673641066335, guid: 09d9cc6448988f64a98fd7d380906730, type: 3}
+    frequency: 10
+    length: 50
 --- !u!114 &1453541969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +426,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   no_obstacle_time_min: 4
   no_obstacle_time_max: 7
+  no_env_time_max: 15
+  no_env_time_min: 25
   damageCurve:
     serializedVersion: 2
     m_Curve:
@@ -532,6 +541,36 @@ MonoBehaviour:
   m_Axes: {x: 1, y: 0, z: 0}
   m_Amplitude: 1
   m_Frequency: 0.2
+--- !u!1 &1979990979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1979990980}
+  m_Layer: 0
+  m_Name: SpawnEnv
+  m_TagString: SpawnEnv
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1979990980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979990979}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2000}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1991045119
 GameObject:
   m_ObjectHideFlags: 0
