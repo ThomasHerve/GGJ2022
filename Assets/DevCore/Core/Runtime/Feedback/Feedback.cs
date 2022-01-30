@@ -20,11 +20,14 @@
                 particleSystem.transform.localPosition = Vector3.zero;
                 duration = owner.ParticleSystem.main.duration;
             }
-            audioSource.clip = feedback.SoundEffect;
+
+            var sfxArr = feedback.SoundEffects;
+            if (sfxArr.Length > 0) {
+            var sfx = sfxArr[Random.Range(0, sfxArr.Length)];
+            audioSource.clip = sfx;
             audioSource.spatialBlend = feedback.SpatialBlend;
 
-            if (owner.SoundEffect) {
-                duration = Mathf.Max(duration, owner.SoundEffect.length);
+                duration = Mathf.Max(duration, sfx.length);
             }
 
             timer = new Timer(duration + 0.1f, OnComplete);

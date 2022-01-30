@@ -14,6 +14,8 @@ public class GateCrossFeedbackPlayer : MonoBehaviour {
 	[SerializeField]
 	private FeedbackAsset onCrossFeedback = null;
 
+	[Header("Fail Gate")] [SerializeField] private FeedbackAsset _failGateFeedback = null; 
+	
 	[Header("References")]
 	[SerializeField] private CinemachineVirtualCamera _camera = null;
 
@@ -72,8 +74,11 @@ public class GateCrossFeedbackPlayer : MonoBehaviour {
 		CameraSetFov(m_BaseCameraFOV);
 	}
 	#endregion
-	
-	private void FailGate(Phase phase) { }
+
+
+	private void FailGate(Phase phase) {
+		_failGateFeedback.Play(transform);
+	}
 
 	private void OnDisable() {
 		ObstacleTimer.InObstacle -= OnGateCrossed;
