@@ -52,6 +52,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6003052423641516967}
+  - component: {fileID: 6482764255065599736}
   m_Layer: 0
   m_Name: PF_Player
   m_TagString: Player
@@ -75,6 +76,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6482764255065599736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6003052423641516962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5438b07ebcc144182cd3f8fd529c48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offFeedback: {fileID: 11400000, guid: 8850eabcf4d5ab74a89cbd5d75464e2b, type: 2}
+  _onFeedback: {fileID: 11400000, guid: abc23d7b1cbf4ab458345f158c708772, type: 2}
 --- !u!1001 &659061131971949743
 PrefabInstance:
   m_ObjectHideFlags: 0
