@@ -79,10 +79,11 @@ public class GameManager : MonoBehaviour
     {
         reseting = true;
         ending = false;
-
-        GameObject.FindGameObjectWithTag("PlayerPrefab").transform.position = new Vector3(0, 0, 0);
+        GameObject player = GameObject.FindGameObjectWithTag("PlayerPrefab");
+        player.transform.position = new Vector3(0,0,0);
         GameObject playerR = GameObject.FindGameObjectWithTag("PlayerRenderer");
         playerR.SetActive(false);
+
         PlayerAttribute.invincible = true;
 
         PlayerAttribute.speed = 10;
@@ -96,6 +97,16 @@ public class GameManager : MonoBehaviour
         looper.ResetSpawn();
 
         reseting = false;
+
+        // Animation
+        player.transform.position = new Vector3(0, 0, -3);
+        float animationSpeed = 1.5f;
+        while (player.transform.position.z < 0)
+        {
+            player.transform.position = new Vector3(0, 0, player.transform.position.z + animationSpeed * Time.deltaTime);
+            yield return null;
+        }
+        player.transform.position = new Vector3(0, 0, 0);
 
     }
 
