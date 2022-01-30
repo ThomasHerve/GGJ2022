@@ -314,6 +314,7 @@ GameObject:
   - component: {fileID: 1453541967}
   - component: {fileID: 1453541969}
   - component: {fileID: 1453541968}
+  - component: {fileID: 1453541970}
   m_Layer: 0
   m_Name: Dylan
   m_TagString: Dylan
@@ -462,6 +463,19 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   started: 0
+--- !u!114 &1453541970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453541965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d77766bd06212c478640192a2709474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  son: {fileID: 8300000, guid: 3cd4b61331ee1fa489eb5dafc627249f, type: 3}
 --- !u!1 &1726556844
 GameObject:
   m_ObjectHideFlags: 0
