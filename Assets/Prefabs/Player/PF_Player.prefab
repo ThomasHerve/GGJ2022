@@ -90,7 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crossGateFOVKick:
     duration: 0.25
-    value: 70
+    value: 55
     curve:
       serializedVersion: 2
       m_Curve:

@@ -7,13 +7,14 @@ public static class PlayerAttribute
     #region Constante
     public static Color color0 = Color.cyan;
     public static Color color1 = Color.yellow;
+    public static int maxlife = 1;
 
     #endregion
 
 
     #region Current State
     public static Player player;
-    public static int life = 3;
+    public static int life = maxlife;
     public static float distance = 10;
     public static bool invincible = false;
     public static float maxSpeed = 8;
@@ -85,7 +86,7 @@ public static class PlayerAttribute
     }
     public static void Reset()
     {
-        life = 3;
+        life = maxlife;
         speed = 1;
         invincible = false;
         score = 0;
