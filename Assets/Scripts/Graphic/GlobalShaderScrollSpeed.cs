@@ -18,13 +18,16 @@ public class GlobalShaderScrollSpeed : MonoBehaviour {
 	
 	private void Awake() {
 		m_Instance = this;
+		SetFactorProperty(m_SpeedFactor);
 	}
 
 	private static void SetFactorProperty(float factor) {
 		Shader.SetGlobalFloat(_globalSpeedFactorProp, factor);
 	}
 
+#if UNITY_EDITOR
 	private void OnValidate() {
 		SetFactorProperty(m_SpeedFactor);
 	}
+#endif
 }
