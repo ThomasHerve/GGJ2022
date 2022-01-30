@@ -85,7 +85,7 @@ Material:
     - _Iridescence: 0.03
     - _MaskDistanceFade: 2
     - _MaskInluence: 0.964
-    - _MaskScroll: 1.2
+    - _MaskScroll: 1.5
     - _MaskTiling: 1.5
     - _Metallic: 0
     - _Mode: 0
