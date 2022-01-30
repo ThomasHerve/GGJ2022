@@ -46,6 +46,9 @@ public class GameLooper : MonoBehaviour
 
     public bool started = false;
 
+    float patternchance = 0.4f;
+    int pattern = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,24 +59,33 @@ public class GameLooper : MonoBehaviour
         PlayerAttribute.onSpeedChange += SpeedChangeHandler;
         damagesVolume = GameObject.FindGameObjectWithTag("damageVolume").GetComponent<Volume>();
         speedVolume = GameObject.FindGameObjectWithTag("speedVolume").GetComponent<Volume>();
+
+        ResetSpawn();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        // Environment
+        timerEnv -= Time.deltaTime;
+        if (timerEnv <= 0)
+        {
+            scheduler.NextEnv();
+            timerEnv = UnityEngine.Random.Range(no_env_time_min_real, no_env_time_max_real);
+        }
+
         if (!started)
             return;
 
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            scheduler.Next();
-            timer = UnityEngine.Random.Range(no_obstacle_time_min_real, no_obstacle_time_max_real);
-        }
 
-        if(obstacle != null && !PlayerAttribute.invincible)
+
+
+
+        //Hits
+        if (obstacle != null && !PlayerAttribute.invincible)
         {
-            if(obstacle.GetComponent<ObstacleAttribute>().color != PlayerAttribute.color)
+            if (obstacle.GetComponent<ObstacleAttribute>().color != PlayerAttribute.color)
             {
                 PlayerAttribute.LoseLife();
             }
@@ -83,13 +95,34 @@ public class GameLooper : MonoBehaviour
             }
         }
 
-        // Environment
-        timerEnv -= Time.deltaTime;
-        if (timerEnv <= 0)
+
+
+
+        timer -= Time.deltaTime;
+        if (timer <= 0)
         {
-            scheduler.NextEnv();
-            timerEnv = UnityEngine.Random.Range(no_env_time_min_real, no_env_time_max_real);
+
+            if (UnityEngine.Random.value < patternchance)
+            {
+                Debug.Log("Pattern Launched");
+                pattern = UnityEngine.Random.Range(2, 12);
+            }
+
+            if (pattern > 0)
+            {
+                scheduler.Next();
+                pattern--;
+                timer = 0.5f;
+                return;
+            }
+
+            scheduler.Next();
+            timer = UnityEngine.Random.Range(no_obstacle_time_min_real, no_obstacle_time_max_real);
         }
+
+
+
+        
 
     }
 
