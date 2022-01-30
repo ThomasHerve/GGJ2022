@@ -9,6 +9,7 @@ TagManager:
   - End
   - damageVolume
   - PlayerPrefab
+  - PlayerRenderer
   layers:
   - Default
   - TransparentFX

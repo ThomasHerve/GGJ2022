@@ -400,10 +400,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacles:
   - gameObject: {fileID: 1784155927598863076, guid: 5cdff35cc224a004bb5ad9d1b31b8c3c, type: 3}
-    frequency: 20
+    frequency: 30
     length: 0.1
   - gameObject: {fileID: 9190041690270217668, guid: 80d9ec062c3e485478e49e0362aff5be, type: 3}
-    frequency: 20
+    frequency: 30
     length: 0.1
 --- !u!114 &1453541969
 MonoBehaviour:
@@ -417,8 +417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a62f877dd8ee14c81b352f0cf8e300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  no_obstacle_time_min: 6
-  no_obstacle_time_max: 8
+  no_obstacle_time_min: 4
+  no_obstacle_time_max: 7
   damageCurve:
     serializedVersion: 2
     m_Curve:
@@ -747,6 +747,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1237040809904552767, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
+      propertyPath: m_TagString
+      value: PlayerRenderer
+      objectReference: {fileID: 0}
     - target: {fileID: 2801523054900661332, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
       propertyPath: m_TagString
       value: Player
