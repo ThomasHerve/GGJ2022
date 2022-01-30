@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Death : MonoBehaviour
 {
     public Transform EndScore;
+    public GameObject TapToPlayText;
 
     // Update is called once per frame
     void Update()
@@ -26,6 +27,16 @@ public class Death : MonoBehaviour
         EndScore.gameObject.SetActive(true);
         Score.AddHighScore(Score.PersonnalScore);
         Score.SaveScores();
+
+        GameManager.inputEnabled = false;
+        Invoke("EnableInput", 2.50f);
+        TapToPlayText?.SetActive(false);
+    }
+
+    private void EnableInput()
+    {
+        GameManager.inputEnabled = true;
+        TapToPlayText?.SetActive(true);
     }
 
     public void Reset()

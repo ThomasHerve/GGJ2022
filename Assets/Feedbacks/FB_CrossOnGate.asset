@@ -15,8 +15,9 @@ MonoBehaviour:
   particleSystem: {fileID: 8271855459102429650, guid: 39202cf55177a5c4da1e2688e94b950a, type: 3}
   relativeRotation: 0
   relativeScale: 0
-  soundEffects: []
-  pitchRange: {x: 1, y: 1}
+  soundEffects:
+  - {fileID: 8300000, guid: 8b6b044b71916334f84df1c39f1cdc19, type: 3}
+  pitchRange: {x: 0.3, y: 0.5}
   volumeRange: {x: 0.8, y: 1}
   spatialBlend: 1
   resetSound: 0

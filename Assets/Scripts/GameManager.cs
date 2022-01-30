@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
     private bool reseting = false;
     private float endspeed;
     private float enddistance;
+
+    public static bool inputEnabled = true;
     
     public static event Action onGameStart;
     public static event Action onGameEnd;
@@ -57,7 +59,8 @@ public class GameManager : MonoBehaviour {
         if (ending)
         {
             GameObject.FindGameObjectWithTag("PlayerPrefab").transform.position += new Vector3 (0,0, enddistance / PlayerAttribute.distance * endspeed * Time.deltaTime);
-            if ((Input.GetKeyDown(KeyCode.Return) ||
+            if (inputEnabled &&
+                (Input.GetKeyDown(KeyCode.Return) ||
                  Input.GetKeyDown(KeyCode.Space) || 
                  (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began )))
                 StartCoroutine (ResetScene());
@@ -112,7 +115,7 @@ public class GameManager : MonoBehaviour {
 
         PlayerAttribute.speed = 10;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.0f);
 
 
         playerR.SetActive(true);
