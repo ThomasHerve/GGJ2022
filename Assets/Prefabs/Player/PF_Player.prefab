@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8527992442586014986}
   m_Layer: 0
   m_Name: PlayerScript
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2801523054900661332}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.36}
+  m_LocalPosition: {x: 0, y: 0, z: 1.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6003052423641516967}
@@ -53,9 +53,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6003052423641516967}
   - component: {fileID: 6482764255065599736}
+  - component: {fileID: 9200893805666056354}
   m_Layer: 0
   m_Name: PF_Player
-  m_TagString: Player
+  m_TagString: PlayerPrefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,6 +129,20 @@ MonoBehaviour:
   onCrossFeedback: {fileID: 11400000, guid: abc23d7b1cbf4ab458345f158c708772, type: 2}
   _failGateFeedback: {fileID: 11400000, guid: 300da1dd8538b91478ce5171f64f7704, type: 2}
   _camera: {fileID: 0}
+--- !u!114 &9200893805666056354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6003052423641516962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c1ecb6128fb0b4191c0c85de248e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offFeedback: {fileID: 11400000, guid: c29d53be276b337489a1f5a34ae050ac, type: 2}
+  _onFeedback: {fileID: 11400000, guid: c29d53be276b337489a1f5a34ae050ac, type: 2}
 --- !u!1001 &659061131971949743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138,6 +153,10 @@ PrefabInstance:
     - target: {fileID: 1733796334109052816, guid: 40dde4dc2ef1b0e4dbe6b38943566767, type: 3}
       propertyPath: m_Name
       value: PF_Base_PlayerModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733796334109052816, guid: 40dde4dc2ef1b0e4dbe6b38943566767, type: 3}
+      propertyPath: m_TagString
+      value: PlayerRenderer
       objectReference: {fileID: 0}
     - target: {fileID: 4957721643498966587, guid: 40dde4dc2ef1b0e4dbe6b38943566767, type: 3}
       propertyPath: m_RootOrder

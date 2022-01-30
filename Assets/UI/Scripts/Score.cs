@@ -8,7 +8,7 @@ public static class Score
     public static int PersonnalScore;//Best personnal score for the session
     public static List<int> HighScoreValues;//Top 10 best score
 
-    private const int MaxHighScoreCount = 10;
+    private const int MaxHighScoreCount = 6;
     private const string BaseHighScoreKey = "HighScore_";
 
     static Score()
