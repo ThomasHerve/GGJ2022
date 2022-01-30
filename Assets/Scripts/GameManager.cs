@@ -37,9 +37,9 @@ public class GameManager : MonoBehaviour {
         {
             if (!looper.started) {
                 MainMenu.instance.PlayGame();
+                looper.started = true;
+                PlayerAttribute.speed = 1;
             }
-            looper.started = true;
-            PlayerAttribute.speed = 1;
         }
 
         if (looper.started)
