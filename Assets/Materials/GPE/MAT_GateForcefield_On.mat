@@ -20,9 +20,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_SmoothShockwave
+  m_Name: MAT_GateForcefield_On
   m_Shader: {fileID: -6465566751694194690, guid: cfb30a17915498249bbaedb4b950d735, type: 3}
-  m_ShaderKeywords: CUSTOM_VERTEX_STREAM_ON
+  m_ShaderKeywords: CUSTOM_VERTEX_STREAM_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DistortionMask:
-        m_Texture: {fileID: 2800000, guid: 672da189d939035498d6a94abb8073cb, type: 3}
+        m_Texture: {fileID: 2800000, guid: c6555502e3979f649a9a543aaf16267b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -101,7 +101,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - CUSTOM_VERTEX_STREAM: 1
+    - CUSTOM_VERTEX_STREAM: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -111,8 +111,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Distortion: -0.3
-    - _DistortionScroll: -1.5
+    - _Distortion: -0.4
+    - _DistortionScroll: -0.8
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
@@ -132,10 +132,10 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BrightColor: {r: 9.424291, g: 29.508846, b: 26.000877, a: 0}
+    - _BrightColor: {r: 11.984314, g: 7.529412, b: 3.827451, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DaskColor: {r: 0, g: 0.019421067, b: 0.36900002, a: 0}
-    - _DistortionTiling: {r: 2, g: 1, b: 0, a: 0}
+    - _DaskColor: {r: 0.36862746, g: 0, b: 0.171663, a: 0}
+    - _DistortionTiling: {r: 1, g: 2, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []

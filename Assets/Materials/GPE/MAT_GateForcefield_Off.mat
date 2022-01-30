@@ -20,9 +20,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MAT_SmoothShockwave
+  m_Name: MAT_GateForcefield_Off
   m_Shader: {fileID: -6465566751694194690, guid: cfb30a17915498249bbaedb4b950d735, type: 3}
-  m_ShaderKeywords: CUSTOM_VERTEX_STREAM_ON
+  m_ShaderKeywords: CUSTOM_VERTEX_STREAM_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -101,7 +101,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - CUSTOM_VERTEX_STREAM: 1
+    - CUSTOM_VERTEX_STREAM: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -112,7 +112,7 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _Distortion: -0.3
-    - _DistortionScroll: -1.5
+    - _DistortionScroll: -2
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
