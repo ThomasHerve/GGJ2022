@@ -8,13 +8,33 @@ public static class Score
     public static int PersonnalScore;//Best personnal score for the session
     public static List<int> HighScoreValues;//Top 10 best score
 
+    private const int MaxHighScoreCount = 10;
+    private const string BaseHighScoreKey = "HighScore_";
+
     static Score()
     {
         PersonnalScore = 0;
-        HighScoreValues = new List<int>(10);
-        for (int i = 0; i < 10; i++)
+        HighScoreValues = new List<int>(MaxHighScoreCount);
+
+        for (int i = 0; i < MaxHighScoreCount; i++)
         {
-            HighScoreValues.Add(0);
+            string key = BaseHighScoreKey + i;
+            if (!PlayerPrefs.HasKey(key))
+            {
+                break;
+            }
+
+            HighScoreValues.Add(PlayerPrefs.GetInt(key));
+        }
+    }
+
+    public static void SaveScores()
+    {
+        int maxIter = Mathf.Min(HighScoreValues.Count, MaxHighScoreCount);
+        for (int i = 0; i < maxIter; i++)
+        {
+            string key = BaseHighScoreKey + i;
+            PlayerPrefs.SetInt(key, HighScoreValues[i]);
         }
     }
 
@@ -31,10 +51,15 @@ public static class Score
 
     public static void AddHighScore(int score)
     {
-        if (score >= HighScoreValues[0])//Bigger or equal than minimum high score
+        if (HighScoreValues.Count < MaxHighScoreCount)
         {
+            HighScoreValues.Add(score);
+            HighScoreValues.Sort();
+        }
+        else if (score >= HighScoreValues[0])
+        {
+            // Greater or equal than minimum high score
             HighScoreValues[0] = score;
-
             HighScoreValues.Sort();
         }
     }

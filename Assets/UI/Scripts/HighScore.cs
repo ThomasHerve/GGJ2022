@@ -10,7 +10,16 @@ public class HighScore : MonoBehaviour
 
     private void Start()
     {
+        UpdateHighScore();   
+    }
 
+    private void Update()
+    {
+        UpdateHighScore();
+    }
+
+    public void UpdateHighScore()
+    {
         GlobalHighScore.text = "";
 
         if (Score.HighScoreValues.Count != 0)

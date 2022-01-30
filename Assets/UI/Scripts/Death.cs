@@ -25,6 +25,7 @@ public class Death : MonoBehaviour
     public void Execute() {
         EndScore.gameObject.SetActive(true);
         Score.AddHighScore(Score.PersonnalScore);
+        Score.SaveScores();
     }
 
     public void Reset()
