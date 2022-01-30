@@ -11,6 +11,7 @@ TagManager:
   - PlayerPrefab
   - PlayerRenderer
   - speedVolume
+  - death
   layers:
   - Default
   - TransparentFX

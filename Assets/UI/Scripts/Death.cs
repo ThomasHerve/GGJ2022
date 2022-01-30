@@ -11,6 +11,7 @@ public class Death : MonoBehaviour
     void Update()
     {
         //Check for death (life = 0)
+        /*
         if (Input.GetKeyDown(KeyCode.Return))//(PlayerAttribute.life == 0)
         {
             Debug.Log("Dead");
@@ -18,6 +19,16 @@ public class Death : MonoBehaviour
 
             //Display Score + High score
             EndScore.gameObject.SetActive(true);
-        }
+        }*/
+    }
+
+    public void Execute() {
+        EndScore.gameObject.SetActive(true);
+        Score.AddHighScore(Score.PersonnalScore);
+    }
+
+    public void Reset()
+    {
+        EndScore.gameObject.SetActive(false);
     }
 }

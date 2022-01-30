@@ -15,7 +15,9 @@ MonoBehaviour:
   scenes:
   - Mockup
   - GameScene
+  - Menu
   description: 
   sceneAssets:
   - {fileID: 102900000, guid: 4aaa284c2414b6741a8b63066a30bd35, type: 3}
   - {fileID: 102900000, guid: 374c4ed4793f5eb4f99f0d5c5fa57a0c, type: 3}
+  - {fileID: 102900000, guid: dbfac1a9fb0a6e847bd457f4bedf36ac, type: 3}

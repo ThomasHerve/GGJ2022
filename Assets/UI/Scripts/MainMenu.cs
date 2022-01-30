@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    
+    [SerializeField]
+    private GameObject menu;
+
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //SceneManager.LoadScene("SampleScene");
+        menu.SetActive(false);
     }
 
     public void QuitGame()
@@ -20,7 +21,7 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             PlayGame();
         }

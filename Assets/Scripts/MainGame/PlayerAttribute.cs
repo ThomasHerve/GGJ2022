@@ -19,6 +19,7 @@ public static class PlayerAttribute
     public static float maxSpeed = 8;
     private static Phase m_Color = Phase.BLUE;
     private static float m_speed = 1;
+    private static int m_score;
     #endregion
 
 
@@ -40,6 +41,15 @@ public static class PlayerAttribute
             onSpeedChange?.Invoke();
         }
     }
+
+    public static int score {
+        get => m_score;
+        set
+        {
+            m_score = value;
+        }
+    }
+
 
     public static Color currentColor
     {
@@ -78,6 +88,7 @@ public static class PlayerAttribute
         life = 3;
         speed = 1;
         invincible = false;
+        score = 0;
     }
     #endregion
 }

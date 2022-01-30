@@ -67,6 +67,10 @@ public class GameLooper : MonoBehaviour
             {
                 PlayerAttribute.LoseLife();
             }
+            else
+            {
+                PlayerAttribute.score += 1;
+            }
         }
     }
 

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     GameLooper looper;
-
+    Death deathUI;
 
     private float timer = 2f;
 
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
         looper = Component.FindObjectOfType<GameLooper>();
         PlayerAttribute.onHitTaken += OnHitTakenHandler;
+        deathUI = GameObject.FindGameObjectWithTag("death").GetComponent<Death>();
     }
 
     // Update is called once per frame
@@ -76,10 +77,17 @@ public class GameManager : MonoBehaviour
         endspeed = PlayerAttribute.speed;
         PlayerAttribute.speed = 0;
         ending = true;
+
+        // UI
+        Debug.Log("Score: " + PlayerAttribute.score);
+        Score.PersonnalScore = PlayerAttribute.score;
+        deathUI.Execute();
+
     }
 
     IEnumerator ResetScene()
     {
+        deathUI.Reset();
         reseting = true;
         ending = false;
         GameObject player = GameObject.FindGameObjectWithTag("PlayerPrefab");
@@ -111,6 +119,7 @@ public class GameManager : MonoBehaviour
         player.transform.position = new Vector3(0, 0, 0);
         reseting = false;
 
+        looper.started = true;
     }
 
 }
