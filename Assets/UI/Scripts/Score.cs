@@ -14,12 +14,13 @@ public static class Score
         HighScoreValues = new List<int>(10);
         for (int i = 0; i < 10; i++)
         {
-            HighScoreValues.Add(i);
+            HighScoreValues.Add(0);
         }
     }
 
     public static int GetPersonnalScore()
     {
+        Debug.Log("Personnal score = " + PersonnalScore);
         return PersonnalScore;
     }
 
@@ -30,7 +31,7 @@ public static class Score
 
     public static void AddHighScore(int score)
     {
-        if (score > HighScoreValues[0])//Bigger than minimum high score
+        if (score >= HighScoreValues[0])//Bigger or equal than minimum high score
         {
             HighScoreValues[0] = score;
 
