@@ -1,13 +1,28 @@
+using Cinemachine;
 using DevCore.Core;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Assertions;
 
 public class GateCrossFeedbackPlayer : MonoBehaviour {
-	[SerializeField] private FeedbackAsset _offFeedback = null;
-	[SerializeField] private FeedbackAsset _onFeedback = null;
+	[Header("Cross Gate")] [SerializeField]
+	private FOVKickSetting crossGateFOVKick;
+	
+	[SerializeField]
+	private FeedbackAsset offCrossFeedback = null;
+
+	[SerializeField]
+	private FeedbackAsset onCrossFeedback = null;
+
+	[Header("References")]
+	[SerializeField] private CinemachineVirtualCamera _camera = null;
+
+	private Tween m_CurrentCameraTween = null;
+	private float m_BaseCameraFOV = 0f;
 	
 	private void OnEnable() {
 		ObstacleTimer.InObstacle += OnGateCrossed;
+		m_BaseCameraFOV = CameraGetFOV();
 	}
 
 	private void OnGateCrossed(object sender, ObstacleEventArg e) {
@@ -23,19 +38,51 @@ public class GateCrossFeedbackPlayer : MonoBehaviour {
 
 	private void CrossGate(Phase phase) {
 		if (phase == Phase.BLUE) {
-			Assert.IsNotNull(_offFeedback);
-			_offFeedback.Play(transform);
+			Assert.IsNotNull(offCrossFeedback);
+			offCrossFeedback.Play(transform);
 		} else {
-			Assert.IsNotNull(_onFeedback);
-			_onFeedback.Play(transform);
+			Assert.IsNotNull(onCrossFeedback);
+			onCrossFeedback.Play(transform);
 		}
+		
+		DoFovKick(crossGateFOVKick);
 	}
 
-	private void FailGate(Phase phase) {
-		
+
+	#region Camera
+	private void DoFovKick(FOVKickSetting setting) {
+		if (m_CurrentCameraTween != null) {
+			m_CurrentCameraTween.Kill(true);
+		}
+
+		m_CurrentCameraTween = DOTween.To(CameraGetFOV, CameraSetFov, setting.value, setting.duration);
+		m_CurrentCameraTween.SetEase(setting.curve);
+		m_CurrentCameraTween.OnComplete(ResetCameraFOV);
 	}
 	
+	private float CameraGetFOV() {
+		return _camera.m_Lens.FieldOfView;
+	}
+	
+	private void CameraSetFov(float fov) {
+		_camera.m_Lens.FieldOfView = fov;
+	}
+
+	private void ResetCameraFOV() {
+		CameraSetFov(m_BaseCameraFOV);
+	}
+	#endregion
+	
+	private void FailGate(Phase phase) { }
+
 	private void OnDisable() {
 		ObstacleTimer.InObstacle -= OnGateCrossed;
 	}
 }
+
+[System.Serializable]
+public struct FOVKickSetting {
+	[Min(0f)]public float duration;
+	[Min(0f)]public float value;
+	public AnimationCurve curve;
+} 

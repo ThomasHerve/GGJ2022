@@ -88,8 +88,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5438b07ebcc144182cd3f8fd529c48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offFeedback: {fileID: 11400000, guid: 8850eabcf4d5ab74a89cbd5d75464e2b, type: 2}
-  _onFeedback: {fileID: 11400000, guid: abc23d7b1cbf4ab458345f158c708772, type: 2}
+  crossGateFOVKick:
+    duration: 0.25
+    value: 70
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2.477745
+        outSlope: 2.477745
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.07516523
+      - serializedVersion: 3
+        time: 0.6036236
+        value: 0.993934
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: -0.0032997131
+        inSlope: -0.06184846
+        outSlope: -0.06184846
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.13459828
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  offCrossFeedback: {fileID: 11400000, guid: 8850eabcf4d5ab74a89cbd5d75464e2b, type: 2}
+  onCrossFeedback: {fileID: 11400000, guid: abc23d7b1cbf4ab458345f158c708772, type: 2}
+  _camera: {fileID: 0}
 --- !u!1001 &659061131971949743
 PrefabInstance:
   m_ObjectHideFlags: 0
