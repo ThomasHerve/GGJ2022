@@ -52,11 +52,11 @@ public class GameLooper : MonoBehaviour
         if (!started)
             return;
 
-        timer -= Time.deltaTime * PlayerAttribute.speed;
+        timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            tick();
-            timer = UnityEngine.Random.Range(no_obstacle_time_min, no_obstacle_time_max);
+            scheduler.Next();
+            timer = UnityEngine.Random.Range(no_obstacle_time_min_real, no_obstacle_time_max_real);
         }
 
         if(obstacle != null && !PlayerAttribute.invincible)
@@ -68,10 +68,6 @@ public class GameLooper : MonoBehaviour
         }
     }
 
-    void tick()
-    {
-        scheduler.Next();
-    }
 
     public void InObstacleHandler(object sender, ObstacleEventArg e)
     {
@@ -89,15 +85,14 @@ public class GameLooper : MonoBehaviour
 
     public void AugmentSpawn(float augment)
     {
-        no_obstacle_time_min_real /= augment;
-        no_obstacle_time_max_real /= augment;
-        if (no_obstacle_time_min_real < 1)
+        if (no_obstacle_time_min_real > 1)
         {
-            no_obstacle_time_min_real = 1;
+            no_obstacle_time_min_real -= augment;
         }
-        if (no_obstacle_time_max_real < 2)
+        if (no_obstacle_time_max_real > 2)
         {
-            no_obstacle_time_max_real = 2;
+            no_obstacle_time_max_real -= augment;
+
         }
     }
     public void ResetSpawn()
@@ -120,4 +115,11 @@ public class GameLooper : MonoBehaviour
             yield return null;
         }
     }
+
+    public void MaxSpawn()
+    {
+        no_obstacle_time_min_real = 0.1f;
+        no_obstacle_time_max_real = 0.12f;
+    }
+
 }

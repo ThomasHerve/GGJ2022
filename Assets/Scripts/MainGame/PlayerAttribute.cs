@@ -61,5 +61,11 @@ public static class PlayerAttribute
         invincible = false;
 
     }
+    public static void Reset()
+    {
+        life = 1;
+        speed = 1;
+        invincible = false;
+    }
     #endregion
 }

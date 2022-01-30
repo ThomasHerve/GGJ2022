@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     private float timer = 2f;
 
     private bool ending = false;
+    private bool reseting = false;
     private float endspeed;
     private float enddistance;
 
@@ -24,6 +26,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (reseting)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Return))
         {
             looper.started = true;
@@ -46,6 +53,8 @@ public class GameManager : MonoBehaviour
         if (ending)
         {
             GameObject.FindGameObjectWithTag("PlayerPrefab").transform.position += new Vector3 (0,0, enddistance / PlayerAttribute.distance * endspeed * Time.deltaTime);
+            if (Input.GetKeyDown(KeyCode.Return))
+                StartCoroutine (ResetScene());
         }
     }
 
@@ -64,6 +73,30 @@ public class GameManager : MonoBehaviour
         endspeed = PlayerAttribute.speed;
         PlayerAttribute.speed = 0;
         ending = true;
+    }
+
+    IEnumerator ResetScene()
+    {
+        reseting = true;
+        ending = false;
+
+        GameObject.FindGameObjectWithTag("PlayerPrefab").transform.position = new Vector3(0, 0, 0);
+        GameObject playerR = GameObject.FindGameObjectWithTag("PlayerRenderer");
+        playerR.SetActive(false);
+        PlayerAttribute.invincible = true;
+
+        PlayerAttribute.speed = 10;
+
+        yield return new WaitForSeconds(1f);
+
+
+        playerR.SetActive(true);
+
+        PlayerAttribute.Reset();
+        looper.ResetSpawn();
+
+        reseting = false;
+
     }
 
 }
