@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public static GameLooper looper;
@@ -16,6 +14,9 @@ public class GameManager : MonoBehaviour {
     private bool reseting = false;
     private float endspeed;
     private float enddistance;
+    
+    public static event Action onGameStart;
+    public static event Action onGameEnd;
 
     private void Awake() {
         instance = this;
@@ -64,8 +65,11 @@ public class GameManager : MonoBehaviour {
     }
 
     public void StartGame() {
+        if (looper.started) return;
+        
         looper.started = true;
         PlayerAttribute.speed = 1;
+        onGameStart?.Invoke();
     }
     
     void OnHitTakenHandler()
@@ -88,7 +92,7 @@ public class GameManager : MonoBehaviour {
         Debug.Log("Score: " + PlayerAttribute.score);
         Score.PersonnalScore = PlayerAttribute.score;
         deathUI.Execute();
-
+        onGameEnd?.Invoke();
     }
 
     IEnumerator ResetScene()
