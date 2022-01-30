@@ -786,45 +786,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1237040809904552767, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
-      propertyPath: m_TagString
-      value: PlayerRenderer
-      objectReference: {fileID: 0}
-    - target: {fileID: 2801523054900661332, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4940085943862713573, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: bad97adf423dbc143b73ced40390fef3, type: 2}
-    - target: {fileID: 5093218468622674488, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 5482926778826876698, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.41099998
-      objectReference: {fileID: 0}
-    - target: {fileID: 5482926778826876698, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.40455294
-      objectReference: {fileID: 0}
-    - target: {fileID: 5482926778826876698, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.33202353
-      objectReference: {fileID: 0}
-    - target: {fileID: 5482926778826876698, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
-      propertyPath: m_IntensityMultiplier
-      value: 0.82
-      objectReference: {fileID: 0}
     - target: {fileID: 6003052423641516962, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
       propertyPath: m_Name
       value: PF_Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6003052423641516962, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
-      propertyPath: m_TagString
-      value: PlayerPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 6003052423641516967, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
       propertyPath: m_RootOrder
@@ -874,9 +838,5 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1332048495}
-    - target: {fileID: 6885521755427437872, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5656abe1eee228f48b95d53c7fdc9989, type: 3}

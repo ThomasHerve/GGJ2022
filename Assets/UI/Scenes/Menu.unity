@@ -3328,6 +3328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndScore: {fileID: 971863269}
+  TapToPlayText: {fileID: 1305303277}
 --- !u!1001 &4920851021258143791
 PrefabInstance:
   m_ObjectHideFlags: 0

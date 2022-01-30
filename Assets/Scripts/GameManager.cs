@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour {
 
         PlayerAttribute.speed = 10;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.0f);
 
 
         playerR.SetActive(true);
