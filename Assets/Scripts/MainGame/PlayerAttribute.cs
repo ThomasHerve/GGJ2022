@@ -7,7 +7,7 @@ public static class PlayerAttribute
     #region Constante
     public static Color color0 = Color.cyan;
     public static Color color1 = Color.yellow;
-    public static int maxlife = 1;
+    public static int maxlife = 3;
 
     #endregion
 
