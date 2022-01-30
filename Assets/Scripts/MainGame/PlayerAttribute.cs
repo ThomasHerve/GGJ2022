@@ -13,11 +13,12 @@ public static class PlayerAttribute
 
     #region Current State
     public static Player player;
-    public static int life = 1;
-    public static float speed = 1;
+    public static int life = 3;
     public static float distance = 10;
     public static bool invincible = false;
+    public static float maxSpeed = 8;
     private static Phase m_Color = Phase.BLUE;
+    private static float m_speed = 1;
     #endregion
 
 
@@ -30,6 +31,16 @@ public static class PlayerAttribute
             onColorSwitch?.Invoke();
         }
     }
+
+    public static float speed {
+        get => m_speed;
+        set
+        {
+            m_speed = value;
+            onSpeedChange?.Invoke();
+        }
+    }
+
     public static Color currentColor
     {
         get => m_Color == Phase.BLUE ? color0 : color1;
@@ -39,6 +50,7 @@ public static class PlayerAttribute
 
     #region Events
     public static event Action onColorSwitch;
+    public static event Action onSpeedChange;
     public static event Action onHitTaken;
 
     #endregion
@@ -63,7 +75,7 @@ public static class PlayerAttribute
     }
     public static void Reset()
     {
-        life = 1;
+        life = 3;
         speed = 1;
         invincible = false;
     }

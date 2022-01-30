@@ -45,8 +45,11 @@ public class GameManager : MonoBehaviour
                 timer = 2;
             }
 
-            PlayerAttribute.speed += (0.1f * Time.deltaTime) / PlayerAttribute.speed;
-            looper.AugmentSpawn(0.1f * Time.deltaTime);
+            if (PlayerAttribute.speed < PlayerAttribute.maxSpeed)
+            {
+                PlayerAttribute.speed += (0.1f * Time.deltaTime);
+                looper.AugmentSpawn(0.1f * Time.deltaTime);
+            }
             timer -= Time.deltaTime;
         }
 
@@ -96,7 +99,6 @@ public class GameManager : MonoBehaviour
         PlayerAttribute.Reset();
         looper.ResetSpawn();
 
-        reseting = false;
 
         // Animation
         player.transform.position = new Vector3(0, 0, -3);
@@ -107,6 +109,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         player.transform.position = new Vector3(0, 0, 0);
+        reseting = false;
 
     }
 
