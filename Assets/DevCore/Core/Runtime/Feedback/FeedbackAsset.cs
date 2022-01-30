@@ -1,4 +1,6 @@
-﻿namespace DevCore.Core {
+﻿using UnityEngine.Serialization;
+
+namespace DevCore.Core {
     using System.Collections.Generic;
     using UnityEngine;
 
@@ -14,8 +16,9 @@
         [SerializeField] private bool relativeRotation = false;
         [SerializeField] private bool relativeScale = false;
 
+        [FormerlySerializedAs("soundEffect")]
         [Header("Sound")]
-        [SerializeField] private AudioClip soundEffect = null;
+        [SerializeField] private AudioClip[] soundEffects = {};
         [SerializeField] private Vector2 pitchRange = Vector2.one;
         [SerializeField, Min(0f)] private Vector2 volumeRange = new Vector2(0.8f, 1f);
         [Tooltip("0 = 2D -> 1 = 3D")]
@@ -31,7 +34,7 @@
 
         #region Properties
         public Vector2 PitchRange => pitchRange;
-        public AudioClip SoundEffect => soundEffect;
+        public AudioClip[] SoundEffects => soundEffects;
         public ParticleSystem ParticleSystem => particleSystem;
         public Vector2 VolumeRange => volumeRange;
         public float SpatialBlend => spatialBlend;
