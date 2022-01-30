@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour {
 
             if (PlayerAttribute.speed < PlayerAttribute.maxSpeed)
             {
-                PlayerAttribute.speed += (0.1f * Time.deltaTime);
+                PlayerAttribute.speed += (0.2f * Time.deltaTime);
                 looper.AugmentSpawn(0.1f * Time.deltaTime);
             }
             timer -= Time.deltaTime;
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour {
 
     void OnHitTakenHandler()
     {
-        PlayerAttribute.speed = 1;
+        PlayerAttribute.speed = Math.Max(1, PlayerAttribute.speed/2);
         looper.ResetSpawn();
         if (PlayerAttribute.life == 0)
             EndGame();

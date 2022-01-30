@@ -46,7 +46,7 @@ public class GameLooper : MonoBehaviour
 
     public bool started = false;
 
-    float patternchance = 0.4f;
+    float patternchance = 0.2f;
     int pattern = 0;
 
     // Start is called before the first frame update
