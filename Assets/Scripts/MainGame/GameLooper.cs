@@ -112,7 +112,7 @@ public class GameLooper : MonoBehaviour
             {
                 scheduler.Next();
                 pattern--;
-                timer = 0.2f;
+                timer = 0.5f;
                 return;
             }
 
