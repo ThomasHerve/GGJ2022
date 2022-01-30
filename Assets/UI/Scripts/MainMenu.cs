@@ -14,9 +14,18 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        GameManager.instance.StartGame();
         menu.SetActive(false);
     }
 
+    private void Update() {
+        if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && !GameManager.looper.started)
+        {
+            PlayGame();
+        }
+    }
+
+    
     public void QuitGame()
     {
         Debug.Log("Quit");

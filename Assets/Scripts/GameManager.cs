@@ -8,12 +8,18 @@ public class GameManager : MonoBehaviour {
     public static GameLooper looper;
     Death deathUI;
 
+    public static GameManager instance;
+    
     private float timer = 2f;
 
     private bool ending = false;
     private bool reseting = false;
     private float endspeed;
     private float enddistance;
+
+    private void Awake() {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -30,18 +36,7 @@ public class GameManager : MonoBehaviour {
         {
             return;
         }
-
-        if (Input.GetKeyDown(KeyCode.Return) ||
-            Input.GetKeyDown(KeyCode.Space) || 
-            (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began ))
-        {
-            if (!looper.started) {
-                MainMenu.instance.PlayGame();
-                looper.started = true;
-                PlayerAttribute.speed = 1;
-            }
-        }
-
+        
         if (looper.started)
         {
             if (timer <= 0)
@@ -68,6 +63,11 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void StartGame() {
+        looper.started = true;
+        PlayerAttribute.speed = 1;
+    }
+    
     void OnHitTakenHandler()
     {
         PlayerAttribute.speed = Math.Max(1, PlayerAttribute.speed/2);
