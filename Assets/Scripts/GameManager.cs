@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour {
                 MainMenu.instance.PlayGame();
             }
             looper.started = true;
-            OnHitTakenHandler();
+            PlayerAttribute.speed = 1;
         }
 
         if (looper.started)
