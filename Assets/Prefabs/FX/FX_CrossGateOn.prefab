@@ -56,6 +56,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7572029953381010929, guid: e74a27eca021cfa4c86f76b93738346b, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572029953381010929, guid: e74a27eca021cfa4c86f76b93738346b, type: 3}
       propertyPath: InitialModule.startRotationY.scalar
       value: 3.1415925
       objectReference: {fileID: 0}

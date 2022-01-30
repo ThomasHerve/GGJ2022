@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
-{
-    GameLooper looper;
+public class GameManager : MonoBehaviour {
+    public static GameLooper looper;
     Death deathUI;
 
     private float timer = 2f;
@@ -32,8 +31,13 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) ||
+            Input.GetKeyDown(KeyCode.Space) || 
+            (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began ))
         {
+            if (!looper.started) {
+                MainMenu.instance.PlayGame();
+            }
             looper.started = true;
             OnHitTakenHandler();
         }
@@ -57,7 +61,9 @@ public class GameManager : MonoBehaviour
         if (ending)
         {
             GameObject.FindGameObjectWithTag("PlayerPrefab").transform.position += new Vector3 (0,0, enddistance / PlayerAttribute.distance * endspeed * Time.deltaTime);
-            if (Input.GetKeyDown(KeyCode.Return))
+            if ((Input.GetKeyDown(KeyCode.Return) ||
+                 Input.GetKeyDown(KeyCode.Space) || 
+                 (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began )))
                 StartCoroutine (ResetScene());
         }
     }

@@ -1,12 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField]
     private GameObject menu;
+
+    public static MainMenu instance = null;
+
+    private void OnEnable() {
+        instance = this;
+    }
 
     public void PlayGame()
     {
@@ -18,13 +22,4 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            PlayGame();
-        }
-    }
-
 }

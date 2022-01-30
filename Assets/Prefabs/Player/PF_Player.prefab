@@ -126,6 +126,7 @@ MonoBehaviour:
       m_RotationOrder: 4
   offCrossFeedback: {fileID: 11400000, guid: 8850eabcf4d5ab74a89cbd5d75464e2b, type: 2}
   onCrossFeedback: {fileID: 11400000, guid: abc23d7b1cbf4ab458345f158c708772, type: 2}
+  _failGateFeedback: {fileID: 11400000, guid: 300da1dd8538b91478ce5171f64f7704, type: 2}
   _camera: {fileID: 0}
 --- !u!1001 &659061131971949743
 PrefabInstance:

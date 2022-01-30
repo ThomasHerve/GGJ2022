@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if ((Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) && GameManager.looper.started)
         {
             if (PlayerAttribute.color == Phase.BLUE) PlayerAttribute.color = Phase.ORANGE;
             else PlayerAttribute.color = Phase.BLUE;
