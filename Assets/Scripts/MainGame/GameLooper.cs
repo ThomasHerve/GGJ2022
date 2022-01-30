@@ -24,12 +24,22 @@ public class GameLooper : MonoBehaviour
     private float no_obstacle_time_max_real;
 
     [SerializeField]
+    private float no_env_time_max;
+    private float no_env_time_max_real;
+
+    [SerializeField]
+    private float no_env_time_min;
+    private float no_env_time_min_real;
+
+    [SerializeField]
     private AnimationCurve damageCurve;
 
     private Volume damagesVolume;
 
     private Scheduler scheduler;
     private float timer = 2.0f;
+    private float timerEnv = 5.0f;
+    
 
     private GameObject obstacle;
     private Volume speedVolume;
@@ -72,6 +82,15 @@ public class GameLooper : MonoBehaviour
                 PlayerAttribute.score += 1;
             }
         }
+
+        // Environment
+        timerEnv -= Time.deltaTime;
+        if (timerEnv <= 0)
+        {
+            scheduler.NextEnv();
+            timerEnv = UnityEngine.Random.Range(no_env_time_min_real, no_env_time_max_real);
+        }
+
     }
 
 
@@ -94,18 +113,20 @@ public class GameLooper : MonoBehaviour
         if (no_obstacle_time_min_real > 1)
         {
             no_obstacle_time_min_real -= augment;
+            no_env_time_min_real -= augment;
         }
         if (no_obstacle_time_max_real > 2)
         {
             no_obstacle_time_max_real -= augment;
-
+            no_env_time_max_real -= augment;
         }
     }
     public void ResetSpawn()
     {
         no_obstacle_time_min_real = no_obstacle_time_min;
         no_obstacle_time_max_real = no_obstacle_time_max;
-
+        no_env_time_min_real = no_env_time_min;
+        no_env_time_max_real = no_env_time_max;
     }
 
     private void HitTakenHandler() {
