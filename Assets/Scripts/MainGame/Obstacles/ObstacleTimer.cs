@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ObstacleAttribute))]
 public class ObstacleTimer : MonoBehaviour
 {
     private float delay;
