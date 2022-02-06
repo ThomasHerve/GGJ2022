@@ -1,10 +1,10 @@
 using System;
-using System.Collections;
+using DevCore.SceneManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
+    public SceneBundle sceneToReload;
     public static GameLooper looper;
-    Death deathUI;
 
     public static GameManager instance;
     
@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour {
     {
         looper = Component.FindObjectOfType<GameLooper>();
         PlayerAttribute.onHitTaken += OnHitTakenHandler;
-        deathUI = GameObject.FindGameObjectWithTag("death").GetComponent<Death>();
     }
 
     // Update is called once per frame
@@ -60,9 +59,10 @@ public class GameManager : MonoBehaviour {
             GameObject.FindGameObjectWithTag("PlayerPrefab").transform.position += new Vector3 (0,0, enddistance / PlayerAttribute.distance * endspeed * Time.deltaTime);
             if (inputEnabled &&
                 (Input.GetKeyDown(KeyCode.Return) ||
-                 Input.GetKeyDown(KeyCode.Space) || 
-                 (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began )))
-                StartCoroutine (ResetScene());
+                 Input.GetKeyDown(KeyCode.Space) ||
+                 (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))) {
+                ResetScene();
+            }
         }
     }
 
@@ -94,47 +94,16 @@ public class GameManager : MonoBehaviour {
         // UI
         Debug.Log("Score: " + PlayerAttribute.score);
         Score.PersonnalScore = PlayerAttribute.score;
-        deathUI.Execute();
+        Death.instance.Execute();
 
         Cursor.visible = true;
         onGameEnd?.Invoke();
     }
 
-    IEnumerator ResetScene()
+    void ResetScene()
     {
-        deathUI.Reset();
-        reseting = true;
-        ending = false;
-        GameObject player = GameObject.FindGameObjectWithTag("PlayerPrefab");
-        player.transform.position = new Vector3(0,0,0);
-        GameObject playerR = GameObject.FindGameObjectWithTag("PlayerRenderer");
-        playerR.SetActive(false);
-
-        PlayerAttribute.invincible = true;
-
-        PlayerAttribute.speed = 10;
-
-        yield return new WaitForSeconds(2.0f);
-
-
-        playerR.SetActive(true);
-
         PlayerAttribute.Reset();
-        looper.ResetSpawn();
-
-
-        // Animation
-        player.transform.position = new Vector3(0, 0, -3);
-        float animationSpeed = 1.5f;
-        while (player.transform.position.z < 0)
-        {
-            player.transform.position = new Vector3(0, 0, player.transform.position.z + animationSpeed * Time.deltaTime);
-            yield return null;
-        }
-        player.transform.position = new Vector3(0, 0, 0);
-        reseting = false;
-
-        looper.StartGameLoop();
+        sceneToReload.Load();
     }
 
 }

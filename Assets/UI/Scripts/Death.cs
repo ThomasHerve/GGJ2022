@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,20 +8,18 @@ public class Death : MonoBehaviour
 {
     public Transform EndScore;
     public GameObject TapToPlayText;
+    public static Death instance = null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Check for death (life = 0)
-        /*
-        if (Input.GetKeyDown(KeyCode.Return))//(PlayerAttribute.life == 0)
-        {
-            Debug.Log("Dead");
-            //Stop or pause scene
+    private void OnEnable() {
+        if (instance != this) {
+            instance = this;
+        }
+    }
 
-            //Display Score + High score
-            EndScore.gameObject.SetActive(true);
-        }*/
+    private void OnDisable() {
+        if (instance == this) {
+            instance = null;
+        }
     }
 
     public void Execute() {

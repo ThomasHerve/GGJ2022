@@ -17,27 +17,33 @@ public class Scheduler : MonoBehaviour
     private List<GameObject> free_envs = new List<GameObject>();
     private List<GameObject> used_envs = new List<GameObject>();
 
+    private void OnEnable() {
+        Environment.EndEnv += EndEnvHandler;
+        ObstacleTimer.EndObstacle += EndObstacleHandler;
+    }
+
+    private void OnDisable() {
+        Environment.EndEnv -= EndEnvHandler;
+        ObstacleTimer.EndObstacle -= EndObstacleHandler;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        Environment.EndEnv += EndEnvHandler;
         foreach (Obstacle obstacle in obstacles)
             for (int i = 0; i < obstacle.frequency; i++)
             {
-                GameObject o = Instantiate(obstacle.gameObject);
+                GameObject o = Instantiate(obstacle.gameObject, transform);
                 free_obstacles.Add(o);
                 o.GetComponent<ObstacleAttribute>().zsize = obstacle.length;
                 o.transform.position = GameObject.FindGameObjectWithTag("Dylan").transform.position;
                 o.SetActive(false);
             }
-
-        ObstacleTimer.EndObstacle += EndObstacleHandler;
-
+        
         foreach (Obstacle obstacle in environments)
             for (int i = 0; i < obstacle.frequency; i++)
             {
-                GameObject o = Instantiate(obstacle.gameObject);
+                GameObject o = Instantiate(obstacle.gameObject, transform);
                 free_envs.Add(o);
                 o.GetComponent<ObstacleAttribute>().zsize = obstacle.length;
                 o.transform.position = GameObject.FindGameObjectWithTag("Dylan").transform.position;

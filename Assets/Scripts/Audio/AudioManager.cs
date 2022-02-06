@@ -32,8 +32,8 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	private void OnDisable() {
-		GameManager.onGameStart += OnGameStart;
-		GameManager.onGameEnd += OnGameEnd;
+		GameManager.onGameStart -= OnGameStart;
+		GameManager.onGameEnd -= OnGameEnd;
 	}
 	#endregion
 

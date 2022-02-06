@@ -102,7 +102,7 @@ public class ObstacleTimer : MonoBehaviour
 
         transform.position = GameObject.FindGameObjectWithTag("Dylan").transform.position;
 
-        EndObstacle.Invoke(this, new ObstacleEventArg(gameObject));
+        EndObstacle?.Invoke(this, new ObstacleEventArg(gameObject));
 
     }
 

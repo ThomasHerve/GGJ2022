@@ -774,6 +774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048ca344d1445ad439b8a410034931d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToReload: {fileID: 11400000, guid: f4f9618625540c44db545a9b5304c086, type: 2}
 --- !u!114 &1991045128
 MonoBehaviour:
   m_ObjectHideFlags: 0

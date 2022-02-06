@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         PlayerAttribute.player = this;
+        PlayerAttribute.color = Phase.BLUE;
     }
 
     // Update is called once per frame

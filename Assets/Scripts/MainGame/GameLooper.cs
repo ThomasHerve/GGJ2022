@@ -50,14 +50,24 @@ public class GameLooper : MonoBehaviour {
     float patternchance = 0.2f;
     int pattern = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        scheduler = Component.FindObjectOfType<Scheduler>();
+    private void OnEnable() {
         ObstacleTimer.InObstacle += InObstacleHandler;
         ObstacleTimer.OutObstacle += OutObstacleHandler;
         PlayerAttribute.onHitTaken += HitTakenHandler;
         PlayerAttribute.onSpeedChange += SpeedChangeHandler;
+    }
+
+    private void OnDisable() {
+        ObstacleTimer.InObstacle -= InObstacleHandler;
+        ObstacleTimer.OutObstacle -= OutObstacleHandler;
+        PlayerAttribute.onHitTaken -= HitTakenHandler;
+        PlayerAttribute.onSpeedChange -= SpeedChangeHandler;
+    }
+
+    void Start()
+    {
+        scheduler = Component.FindObjectOfType<Scheduler>();
+        
         damagesVolume = GameObject.FindGameObjectWithTag("damageVolume").GetComponent<Volume>();
         speedVolume = GameObject.FindGameObjectWithTag("speedVolume").GetComponent<Volume>();
 
