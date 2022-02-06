@@ -35,7 +35,7 @@ public class GameLooper : MonoBehaviour {
     private Volume damagesVolume;
 
     private Scheduler scheduler;
-    private float timer = 2.0f;
+    private float remainingSpawnDistance = 2.0f;
     private float timerEnv = 5.0f;
     
 
@@ -92,23 +92,28 @@ public class GameLooper : MonoBehaviour {
             }
         }
 
-        timer -= Time.deltaTime;
-        if (timer <= 0)
+        
+        remainingSpawnDistance -= (GetGlobalSpeed() * Time.deltaTime);
+        if (remainingSpawnDistance <= 0)
         {
-            //Spawn
             var setting = GetCurrentSettings();
+            //Spawn
             int patternCount = Random.Range(setting.randomPatternCount.x, setting.randomPatternCount.y + 1);
             for (int i = 0; i < patternCount; i++) {
                 scheduler.Next(m_SpawnPoint.position, i * setting.patternSpacing);
             }
 
-            timer = Random.Range(setting.randomSpawnTime.x, setting.randomSpawnTime.y) +
-                    (patternCount - 1) * (setting.patternSpacing /(m_SpawnPoint.position.z / PlayerAttribute.distance * PlayerAttribute.speed));
+            remainingSpawnDistance = Random.Range(setting.randomSpawnDistance.x, setting.randomSpawnDistance.y) +
+                    (patternCount - 1) * setting.patternSpacing;
         }
 
         m_CurrentLoopTime += Time.deltaTime;
     }
 
+
+    private float GetGlobalSpeed() {
+        return m_SpawnPoint.position.z / PlayerAttribute.distance * PlayerAttribute.speed;
+    }
 
     private SpawnSettings GetCurrentSettings() {
         float time = m_CurrentLoopTime < m_SpawnSettingSamplingMaxTime ? m_CurrentLoopTime : m_SpawnSettingSamplingMaxTime;

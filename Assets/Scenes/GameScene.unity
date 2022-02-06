@@ -426,25 +426,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpawnSettings:
-  - randomSpawnTime: {x: 3, y: 3}
+  - randomSpawnDistance: {x: 225, y: 225}
     randomPatternCount: {x: 1, y: 1}
     patternSpacing: 80
-  - randomSpawnTime: {x: 2, y: 2}
+  - randomSpawnDistance: {x: 210, y: 210}
     randomPatternCount: {x: 2, y: 2}
     patternSpacing: 80
-  - randomSpawnTime: {x: 1, y: 2}
+  - randomSpawnDistance: {x: 180, y: 180}
     randomPatternCount: {x: 2, y: 3}
     patternSpacing: 65
-  - randomSpawnTime: {x: 1, y: 2}
+  - randomSpawnDistance: {x: 150, y: 150}
     randomPatternCount: {x: 3, y: 6}
     patternSpacing: 55
-  - randomSpawnTime: {x: 1, y: 1}
+  - randomSpawnDistance: {x: 120, y: 120}
     randomPatternCount: {x: 4, y: 7}
     patternSpacing: 45
-  - randomSpawnTime: {x: 1, y: 1}
+  - randomSpawnDistance: {x: 90, y: 90}
     randomPatternCount: {x: 7, y: 10}
     patternSpacing: 35
-  - randomSpawnTime: {x: 1, y: 1}
+  - randomSpawnDistance: {x: 70, y: 70}
     randomPatternCount: {x: 10, y: 16}
     patternSpacing: 30
   m_SpawnSettingSamplingMaxTime: 140
