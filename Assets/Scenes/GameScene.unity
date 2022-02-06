@@ -425,8 +425,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a62f877dd8ee14c81b352f0cf8e300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  no_obstacle_time_min: 4
-  no_obstacle_time_max: 7
+  m_SpawnSettings:
+  - randomSpawnTime: {x: 3, y: 3}
+    randomPatternCount: {x: 1, y: 1}
+    patternSpacing: 80
+  - randomSpawnTime: {x: 2, y: 2}
+    randomPatternCount: {x: 2, y: 2}
+    patternSpacing: 80
+  - randomSpawnTime: {x: 1, y: 2}
+    randomPatternCount: {x: 2, y: 3}
+    patternSpacing: 65
+  - randomSpawnTime: {x: 1, y: 2}
+    randomPatternCount: {x: 3, y: 6}
+    patternSpacing: 55
+  - randomSpawnTime: {x: 1, y: 1}
+    randomPatternCount: {x: 4, y: 7}
+    patternSpacing: 45
+  - randomSpawnTime: {x: 1, y: 1}
+    randomPatternCount: {x: 7, y: 10}
+    patternSpacing: 35
+  - randomSpawnTime: {x: 1, y: 1}
+    randomPatternCount: {x: 10, y: 16}
+    patternSpacing: 30
+  m_SpawnSettingSamplingMaxTime: 140
+  m_SpawnSettingSamplingOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_SpawnPoint: {fileID: 2061545204}
   no_env_time_max: 15
   no_env_time_min: 25
   damageCurve:
@@ -462,7 +508,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  started: 0
 --- !u!114 &1453541970
 MonoBehaviour:
   m_ObjectHideFlags: 0

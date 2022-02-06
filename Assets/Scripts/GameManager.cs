@@ -51,7 +51,6 @@ public class GameManager : MonoBehaviour {
             if (PlayerAttribute.speed < PlayerAttribute.maxSpeed)
             {
                 PlayerAttribute.speed += (0.2f * Time.deltaTime);
-                looper.AugmentSpawn(0.1f * Time.deltaTime);
             }
             timer -= Time.deltaTime;
         }
@@ -70,7 +69,7 @@ public class GameManager : MonoBehaviour {
     public void StartGame() {
         if (looper.started) return;
         
-        looper.started = true;
+        looper.StartGameLoop();
         PlayerAttribute.speed = 1;
         Cursor.visible = false;
         onGameStart?.Invoke();
@@ -86,7 +85,7 @@ public class GameManager : MonoBehaviour {
 
     void EndGame()
     {
-        looper.started = false;
+        looper.StopGameLoop();
         enddistance = Mathf.Abs((GameObject.FindGameObjectWithTag("Spawn").transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).z);
         endspeed = PlayerAttribute.speed;
         PlayerAttribute.speed = 0;
@@ -135,7 +134,7 @@ public class GameManager : MonoBehaviour {
         player.transform.position = new Vector3(0, 0, 0);
         reseting = false;
 
-        looper.started = true;
+        looper.StartGameLoop();
     }
 
 }

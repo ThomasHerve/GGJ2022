@@ -15,7 +15,7 @@ public static class PlayerAttribute
     #region Current State
     public static Player player;
     public static int life = maxlife;
-    public static float distance = 10;
+    public readonly static float distance = 10;
     public static bool invincible = false;
     public static float maxSpeed = 8;
     private static Phase m_Color = Phase.BLUE;

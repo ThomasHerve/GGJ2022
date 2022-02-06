@@ -46,7 +46,7 @@ public class Scheduler : MonoBehaviour
 
     }
 
-    public void Next()
+    public void Next(Vector3 pos, float depthOffset)
     {
         int ind = UnityEngine.Random.Range(0, free_obstacles.Count - 1);
         GameObject obstacle = free_obstacles[ind];
@@ -55,7 +55,7 @@ public class Scheduler : MonoBehaviour
         free_obstacles.Remove(obstacle);
         used_obstacles.Add(obstacle);
 
-        InstantiateObstacle(obstacle);
+        InstantiateObstacle(obstacle, pos, depthOffset);
     }
 
     public void NextEnv()
@@ -72,9 +72,9 @@ public class Scheduler : MonoBehaviour
     }
 
 
-    public void InstantiateObstacle(GameObject obstacle)
+    public void InstantiateObstacle(GameObject obstacle, Vector3 pos, float depthOffet)
     {
-        obstacle.GetComponent<ObstacleTimer>().Launch();
+        obstacle.GetComponent<ObstacleTimer>().Launch(pos, depthOffet);
     }
 
     public void InstantiateEnvs(GameObject env) 

@@ -65,7 +65,7 @@ public class ObstacleTimer : MonoBehaviour
     }
 
 
-    public void Launch()
+    public void Launch(Vector3 pos, float depthOffset)
     {
         zsize = gameObject.GetComponent<ObstacleAttribute>().zsize;
         if (gameObject.GetComponent<Renderer>() != null) {
@@ -77,16 +77,17 @@ public class ObstacleTimer : MonoBehaviour
         trigger = true;
         incoming = true;
 
-        InitPosition();
+        InitPosition(pos, depthOffset);
 
         Debug.Log("Obstacle Launched");
     }
 
-    public void InitPosition()
+    public void InitPosition(Vector3 pos, float depthOffset)
     {
-        transform.position = GameObject.FindGameObjectWithTag("Spawn").transform.position;
-        totalDistance = Mathf.Abs((GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).z);
-        direction = (GameObject.FindGameObjectWithTag("Player").transform.position - transform.position).normalized;
+        transform.position = pos + Vector3.forward * depthOffset;
+        Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+        totalDistance = Mathf.Abs((playerPos - transform.position).z) - depthOffset;
+        direction = (playerPos - transform.position).normalized;
     }
 
     IEnumerator StopAfterDelay()
